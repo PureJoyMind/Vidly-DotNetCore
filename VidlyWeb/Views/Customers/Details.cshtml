@@ -1,0 +1,29 @@
+﻿@model Customer
+@*
+    To explicitly set the action which the form submits to we can use
+    <form method="post" asp-action="Edit"
+*@
+<div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Customer</h2>
+            <hr />
+        </div>
+        
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+        <tr>
+            <td>Id</td>
+            <td>Customer Name</td>
+        </tr>
+        </thead>
+    </table>
+    <div class="mb-3">
+        <span>@Model.Name</span>
+        <span>@Model.Id</span>
+        <span>@Model.IsSubscribedToNewsletter</span>
+        <span>@Model.MembershipTypeId</span>
+    </div>
+    <a asp-controller="Customers" asp-action="Index" class="btn btn-secondary btn-dark" style="width:150px; height: 65px">
+            Back to list
+        </a>
+</div>
