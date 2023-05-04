@@ -25,6 +25,7 @@
             <tr>
                 <th>ID</th>
                 <th>Customer Name</th>
+                <th>MemberShip Type</th>
                 <th>Discount Rate</th>
             </tr>
             </thead>
@@ -41,6 +42,9 @@
                             <i class="bi bi-trash-fill"></i> @obj.Name
                         </a>
 
+                    </td>
+                    <td>
+                        @obj.MembershipType.Name
                     </td>
                     <td>
                             @obj.MembershipType.DiscountRate &nbsp; %

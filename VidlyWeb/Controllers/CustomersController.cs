@@ -8,7 +8,7 @@ namespace VidlyWeb.Controllers
     {
         private readonly ApplicationDbContext _db;
 
-        public CustomersController(ApplicationDbContext dbContext)
+        public CustomersController(ApplicationDbContext dbContext) 
         {
             _db = dbContext;
         }
