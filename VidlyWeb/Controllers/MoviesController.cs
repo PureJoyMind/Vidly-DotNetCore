@@ -19,18 +19,10 @@ namespace VidlyWeb.Controllers
             IEnumerable<Movie> movies = _db.Movies;
             return View(movies);
         }
-        public IActionResult Random()
+
+        public IActionResult Details()
         {
-            var movie = _db.Movies.SingleOrDefault(m => m.Name == "Shrek");
-            List<Customer> customers = _db.Customers.ToList();
 
-            var viewModel = new RandomMovieViewModel()
-            {
-                Movie = movie, 
-                Customers = customers
-            };
-
-            return View(viewModel);  
         }
     }
 }

@@ -12,6 +12,8 @@ namespace VidlyWeb.Models
         [Key]
         public byte Id { get; set; }
 
+        [Required]
+        [Range(1, 4)]
         public virtual int NameId
         {
             get => (int)this.Name;
@@ -27,9 +29,9 @@ namespace VidlyWeb.Models
         [Range(0, 100, ErrorMessage = "Must be between 0 and 100.")]
         public byte DiscountRate { get; set; }
 
+
         public enum MemberShipNames
         {
-            
             PayAsYouGo = 1,
             Monthly,
             Quarterly,
