@@ -23,7 +23,7 @@ namespace VidlyWeb.Controllers
         {
             if (id is null or 0) return NotFound();
 
-            var customer = _db.Customers.FirstOrDefault(x => x.Id == id);
+            var customer = _db.Customers.Include(c => c.MembershipType).FirstOrDefault(x => x.Id == id);
             if (customer == null) 
                 return NotFound();
 

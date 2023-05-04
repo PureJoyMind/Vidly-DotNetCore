@@ -25,8 +25,7 @@
             <tr>
                 <th>ID</th>
                 <th>Customer Name</th>
-                <th>MemberShip Type</th>
-                <th>Discount Rate</th>
+                
             </tr>
             </thead>
             <tbody>
@@ -39,16 +38,11 @@
 
                     <td width="50%">
                         <a asp-controller="Customers" asp-action="Details" asp-route-id="@obj.Id" class="mx-2">
-                            <i class="bi bi-trash-fill"></i> @obj.Name
+                            @obj.Name
                         </a>
 
                     </td>
-                    <td>
-                        @obj.MembershipType.Name
-                    </td>
-                    <td>
-                            @obj.MembershipType.DiscountRate &nbsp; %
-                    </td>
+                    
 
                     @*<td>
                         <div class="w-75 btn-group" role="group">

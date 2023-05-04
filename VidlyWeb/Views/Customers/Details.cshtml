@@ -4,26 +4,45 @@
     <form method="post" asp-action="Edit"
 *@
 <div class="border p-3 mt-4">
-        <div class="row pb-2">
-            <h2 class="text-primary">Customer</h2>
-            <hr />
-        </div>
-        
+    <div class="row pb-2">
+        <h2 class="text-primary">Customer</h2>
+        <hr/>
+    </div>
+
     <table class="table table-bordered table-striped" style="width:100%">
         <thead>
         <tr>
             <td>Id</td>
             <td>Customer Name</td>
+            @if (Model.BirthDateTime.HasValue)
+            {
+                <th>Birth Date</th>
+            }
+            <th>MemberShip Type</th>
+            <th>Discount Rate</th>
         </tr>
         </thead>
+        <tbody>
+        <td>
+            @Model.Id
+        </td>
+        <td>
+            @Model.Name
+        </td>
+        @if (Model.BirthDateTime.HasValue)
+        {
+            <td>@Model.BirthDateTime.ToString()</td>
+        }
+        <td>
+            @Model.MembershipType.Name
+        </td>
+        <td>
+            @Model.MembershipType.DiscountRate &nbsp; %
+        </td>
+        </tbody>
     </table>
-    <div class="mb-3">
-        <span>@Model.Name</span>
-        <span>@Model.Id</span>
-        <span>@Model.IsSubscribedToNewsletter</span>
-        <span>@Model.MembershipTypeId</span>
-    </div>
-    <a asp-controller="Customers" asp-action="Index" class="btn btn-secondary btn-dark" style="width:150px; height: 65px">
-            Back to list
-        </a>
+    
+    <a asp-controller="Customers" asp-action="Index" class="btn btn-info" style="width:150px;">
+        Back to list
+    </a>
 </div>
