@@ -10,8 +10,8 @@ namespace VidlyWeb.Models
 
         [Required(ErrorMessage = "The name value is required!")]
         [StringLength(100)]
-
         public string Name { get; set; }
+        public DateTime? BirthDateTime { get; set; }
         public bool IsSubscribedToNewsletter { get; set; }
         public MembershipType MembershipType { get; set; }
         
