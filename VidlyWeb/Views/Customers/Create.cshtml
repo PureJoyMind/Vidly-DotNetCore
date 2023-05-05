@@ -32,10 +32,24 @@
         </div>
 
         
-
+        @*
         <div class="mb-3">
             <label asp-for="MembershipTypeId" class="form-label mt-4">Membership Types</label>
             <input asp-for="MembershipTypeId" class="form-control" />
+            <span asp-validation-for="MembershipTypeId" class="text-danger"></span>
+
+        </div>
+        *@
+        
+        <div class="mb-3">
+            <label asp-for="MembershipTypeId" class="form-label mt-4">Membership Types</label>
+            <select class="form-select" asp-for="MembershipTypeId">
+                <option value="">Membership Type</option>
+                <option value="1">Pay as you go</option>
+                <option value="2">Monthly</option>
+                <option value="3">Quarterly</option>
+                <option value="4">Annually</option>
+            </select>
             <span asp-validation-for="MembershipTypeId" class="text-danger"></span>
 
         </div>

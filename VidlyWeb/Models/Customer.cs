@@ -22,10 +22,9 @@ namespace VidlyWeb.Models
         [DisplayName("Is Subscribed To Newsletter?")]
         public bool IsSubscribedToNewsletter { get; set; }
 
-        [DisplayName("Membership Type")]
         public MembershipType MembershipType { get; set; }
 
-        [Range(1, 4, ErrorMessage = "Wrong Type")]
+        [DisplayName("Membership Type")]
         // Sometimes we only need the foreign key of another type 
         public byte MembershipTypeId { get; set; }
     }
