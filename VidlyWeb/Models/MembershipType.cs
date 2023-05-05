@@ -12,7 +12,6 @@ namespace VidlyWeb.Models
         [Key]
         public byte Id { get; set; }
 
-        [Required]
         [Range(1, 4)]
         [DisplayName("Membership Type")]
         public virtual int NameId

@@ -20,7 +20,6 @@ namespace VidlyWeb.Models
         public DateTime? BirthDateTime { get; set; }
 
         [DisplayName("Is Subscribed To Newsletter?")]
-        [Required]
         public bool IsSubscribedToNewsletter { get; set; }
 
         [DisplayName("Membership Type")]

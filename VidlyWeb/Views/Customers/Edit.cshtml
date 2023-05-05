@@ -4,25 +4,25 @@
 <form method="post">
     <div class="border p-3 mt-4">
         <div class="row pb-2">
-            <h2 class="text-primary">Create Customer</h2>
-            <hr/>
+            <h2 class="text-primary">Edit Customer</h2>
+            <hr />
         </div>
 
         @*<div asp-validation-summary="All" class="text-danger"></div>*@ @*display all errors*@
-        
+
         <legend class="mt-4">Credentials</legend>
         <div class="mb-3">
             <label asp-for="Name"></label>
-            <input asp-for="Name" class="form-control"/>
-            
+            <input asp-for="Name" class="form-control" />
+
             @*
-                server side validation
+            server side validation
             *@
             <span asp-validation-for="Name" class="text-danger"></span>
-            
+
             @*
-                For client side validation of data we can use the _ValidationsScriptsPartial 
-                partial view.
+            For client side validation of data we can use the _ValidationsScriptsPartial
+            partial view.
             *@
         </div>
         <div class="mb-3">
@@ -31,38 +31,36 @@
             <span asp-validation-for="BirthDateTime" class="text-danger"></span>
         </div>
 
-        
-
         <div class="mb-3">
             <label asp-for="MembershipTypeId" class="form-label mt-4">Membership Types</label>
             <input asp-for="MembershipTypeId" class="form-control" />
             <span asp-validation-for="MembershipTypeId" class="text-danger"></span>
 
         </div>
-        
+
         <div class="form-check form-switch mb-3">
             <label asp-for="IsSubscribedToNewsletter" class="form-check-label" for="newsLetter"></label>
-            <input asp-for="IsSubscribedToNewsletter" class="form-check-input" type="checkbox" id="newsLetter"/>
-            
+            <input asp-for="IsSubscribedToNewsletter" class="form-check-input" type="checkbox" id="newsLetter" />
+
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width:150px; height: 65px">Create</button>
-        <a asp-controller="Customers" asp-action="Index" class="btn btn-secondary btn-dark" style="width:150px;">
+        <button type="submit" class="btn btn-primary" style="width:150px; height: 65px">Edit</button>
+        <a asp-controller="Customers" asp-action="Index" class="btn btn-secondary btn-dark" style="width:150px; height: 65px">
             Back to list
         </a>
     </div>
 </form>
 
-            
-            
+
+
 @*
     The _ValidationsScriptsPartial contains only scripts so we need to include them in a script section.
     This forces the validations to be done in the client side.
 *@
 
 @section Scripts
-{
+    {
     @{
-        <partial name="_ValidationScriptsPartial"/>
+        <partial name="_ValidationScriptsPartial" />
     }
 }
