@@ -14,6 +14,7 @@ namespace VidlyWeb.Models
 
         [Required]
         [Range(1, 4)]
+        [DisplayName("Membership Type")]
         public virtual int NameId
         {
             get => (int)this.Name;

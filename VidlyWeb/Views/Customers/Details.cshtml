@@ -31,7 +31,8 @@
         </td>
         @if (Model.BirthDateTime.HasValue)
         {
-            <td>@Model.BirthDateTime.ToString()</td>
+            // C# 6 syntax for nullable value types
+            <td>@Model.BirthDateTime?.ToString("D")</td>
         }
         <td>
             @Model.MembershipType.Name
