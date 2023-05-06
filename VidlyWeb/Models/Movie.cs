@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -13,6 +14,7 @@ namespace VidlyWeb.Models
 
         [Required]
         [Column(TypeName = "date")]
+        [DisplayName("Release Date")]
         public DateTime ReleaseDate { get; set; }
 
         [Required]
@@ -21,10 +23,12 @@ namespace VidlyWeb.Models
 
         [Required]
         [Range(0, 2500, ErrorMessage = "Out of range.")]
+        [DisplayName("Number in Stock")]
         public int NumberInStock { get; set; }
 
         [Required]
         [Range(1, 4)]
+        [DisplayName("Genre")]
         public virtual int GenreId
         {
             get => (int)GenreName;

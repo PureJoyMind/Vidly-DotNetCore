@@ -31,5 +31,28 @@ namespace VidlyWeb.Controllers
 
             return View(movie);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // Post
+        [HttpPost]
+        [ValidateAntiForgeryToken] // not required
+        public IActionResult Create(Movie obj)
+        {
+            //if (!ModelState.IsValid) // Is tested in client
+            //{
+            //    return View(obj);
+            //}
+            _db.Movies.Add(obj); // not saved to the database
+            _db.SaveChanges(); // saved to the database
+            TempData["success"] = "Movie Created Successfully.";
+            return RedirectToAction("Index"); // looks for action inside the same controller
+
+            // to redirect to another action in another controller we feed the method
+            // the controller name ("Action","Controller")
+        }
     }
 }
