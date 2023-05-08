@@ -54,5 +54,34 @@ namespace VidlyWeb.Controllers
             // to redirect to another action in another controller we feed the method
             // the controller name ("Action","Controller")
         }
+
+        public IActionResult Edit(int? id)
+        {
+            if (id == null || id == 0) return NotFound();
+
+            var movie = _db.Movies.SingleOrDefault(c => c.Id == id);
+
+            if (movie == null) return NotFound();
+
+            return View(movie);
+        }
+
+        // Post
+        [HttpPost]
+        [ValidateAntiForgeryToken] // not required
+        public IActionResult Edit(Movie obj)
+        {
+            //if (!ModelState.IsValid) // Is tested in client
+            //{
+            //    return View(obj);
+            //}
+            _db.Movies.Update(obj); // not saved to the database
+            _db.SaveChanges(); // saved to the database
+            TempData["success"] = "Customer Edited Successfully.";
+            return RedirectToAction("Index"); // looks for action inside the same controller
+
+            // to redirect to another action in another controller we feed the method
+            // the controller name ("Action","Controller")
+        }
     }
 }
