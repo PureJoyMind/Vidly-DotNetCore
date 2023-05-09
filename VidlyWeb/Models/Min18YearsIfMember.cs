@@ -13,7 +13,7 @@ namespace VidlyWeb.Models
             {
                 // Checking the selected membership type
                 var customer = (Customer)validationContext.ObjectInstance;
-                if (customer.MembershipTypeId == 1) return ValidationResult.Success;
+                if (customer.MembershipTypeId is (byte)MembershipType.MemberShipNames.PayAsYouGo or 0) return ValidationResult.Success;
 
                 if (customer.BirthDateTime == null) return new ValidationResult("Birthdate is required.");
                 
