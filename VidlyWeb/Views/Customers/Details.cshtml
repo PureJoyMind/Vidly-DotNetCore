@@ -12,12 +12,13 @@
     <table class="table table-bordered table-striped" style="width:100%">
         <thead>
         <tr>
-            <td>Id</td>
-            <td>Customer Name</td>
+            <th>Id</th>
+            <th>Customer Name</th>
             @if (Model.BirthDateTime.HasValue)
             {
                 <th>Birth Date</th>
             }
+            <th>Newsletter Subscribed</th>
             <th>MemberShip Type</th>
             <th>Discount Rate</th>
         </tr>
@@ -34,6 +35,7 @@
             // C# 6 syntax for nullable value types
             <td>@Model.BirthDateTime?.ToString("D")</td>
         }
+        <td>@Model.IsSubscribedToNewsletter</td>
         <td>
             @Model.MembershipType.Name
         </td>
