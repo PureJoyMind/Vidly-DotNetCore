@@ -17,12 +17,13 @@ namespace VidlyWeb.Models
 
         [Column(TypeName = "date")]
         [DisplayName("Birth Date")]
+        [Min18YearsIfMember]
         public DateTime? BirthDateTime { get; set; }
 
         [DisplayName("Is Subscribed To Newsletter?")]
         public bool IsSubscribedToNewsletter { get; set; }
 
-        public MembershipType MembershipType { get; set; }
+        public MembershipType? MembershipType { get; set; }
 
         [DisplayName("Membership Type")]
         // Sometimes we only need the foreign key of another type 

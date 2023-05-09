@@ -40,10 +40,10 @@ namespace VidlyWeb.Controllers
         [ValidateAntiForgeryToken] // not required
         public IActionResult Create(Customer obj)
         {
-            //if (!ModelState.IsValid) // Is tested in client
-            //{
-            //    return View(obj);
-            //}
+            if (!ModelState.IsValid) // Is tested in client
+            {
+                return View(obj);
+            }
             _db.Customers.Add(obj); // not saved to the database
             _db.SaveChanges(); // saved to the database
             TempData["success"] = "Customer Created Successfully.";
