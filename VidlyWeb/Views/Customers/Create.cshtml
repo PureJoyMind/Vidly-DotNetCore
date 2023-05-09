@@ -31,16 +31,6 @@
             <span asp-validation-for="BirthDateTime" class="text-danger"></span>
         </div>
 
-        
-        @*
-        <div class="mb-3">
-            <label asp-for="MembershipTypeId" class="form-label mt-4">Membership Types</label>
-            <input asp-for="MembershipTypeId" class="form-control" />
-            <span asp-validation-for="MembershipTypeId" class="text-danger"></span>
-
-        </div>
-        *@
-        
         <div class="mb-3">
             <label asp-for="MembershipTypeId" class="form-label mt-4">Membership Types</label>
             <select class="form-select" asp-for="MembershipTypeId">
@@ -74,9 +64,9 @@
     This forces the validations to be done in the client side.
 *@
 
-@*@section Scripts
+@section Scripts
 {
     @{
         <partial name="_ValidationScriptsPartial"/>
     }
-}*@
+}
