@@ -34,7 +34,7 @@ namespace VidlyWeb.Controllers.Api
             var customer = _db.Customers.SingleOrDefault(x => x.Id == id);
             if (customer == null) NotFound();
 
-            return _mapper.Map<Customer, CustomerDto>(customer);
+            return _mapper.Map<Customer, CustomerDto>(customer!);
         }
 
         // POST /api/customers
@@ -64,7 +64,7 @@ namespace VidlyWeb.Controllers.Api
 
             if (customerInDb == null) NotFound();
 
-            _mapper.Map<CustomerDto, Customer>(customerDto, customerInDb);
+            _mapper.Map(customerDto, customerInDb!);
 
             _db.SaveChanges();
         }
@@ -77,7 +77,7 @@ namespace VidlyWeb.Controllers.Api
 
             if (customerInDb == null) NotFound();
 
-            _db.Customers.Remove(customerInDb);
+            _db.Customers.Remove(customerInDb!);
             _db.SaveChanges();
         }
     }
