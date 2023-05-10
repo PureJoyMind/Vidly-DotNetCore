@@ -48,7 +48,7 @@ namespace VidlyWeb.Controllers.Api
             _db.Customers.Add(customer);
             _db.SaveChanges();
 
-            //customerDto.Id = customer.Id;
+            customerDto.Id = customer.Id;
 
             return customerDto;
         }

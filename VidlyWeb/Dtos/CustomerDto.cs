@@ -2,13 +2,16 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using AutoMapper;
+using AutoMapper.Configuration.Annotations;
 using VidlyWeb.Models;
 
 namespace VidlyWeb.Dtos
 {
+    [AutoMap(typeof(Customer))]
     public class CustomerDto
     {
-        //public int Id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "The name value is required!")]
         [StringLength(100)]
