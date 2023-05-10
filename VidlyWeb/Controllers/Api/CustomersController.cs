@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using VidlyWeb.Dtos;
 using VidlyWeb.Models;
@@ -29,17 +30,17 @@ namespace VidlyWeb.Controllers.Api
 
         // GET /api/customers/id
         [HttpGet("{id:int}")]
-        public CustomerDto GetCustomer(int id)
+        public IActionResult GetCustomer(int id)
         {
             var customer = _db.Customers.SingleOrDefault(x => x.Id == id);
             if (customer == null) NotFound();
 
-            return _mapper.Map<Customer, CustomerDto>(customer!);
+            return Ok(_mapper.Map<Customer, CustomerDto>(customer!));
         }
 
         // POST /api/customers
         [HttpPost]
-        public CustomerDto CreateCustomer(CustomerDto customerDto)
+        public IActionResult CreateCustomer(CustomerDto customerDto)
         {
             if (!ModelState.IsValid) BadRequest();
 
@@ -50,13 +51,13 @@ namespace VidlyWeb.Controllers.Api
 
             customerDto.Id = customer.Id;
 
-            return customerDto;
+            return Created(new Uri(Request.GetDisplayUrl() + customerDto.Id), customerDto);
         }
 
 
         // PUT /api/customer/id
         [HttpPut("{id:int}")]
-        public void UpdateCustomer(int id, CustomerDto customerDto)
+        public IActionResult UpdateCustomer(int id, CustomerDto customerDto)
         {
             if (!ModelState.IsValid) BadRequest();
 
@@ -67,11 +68,15 @@ namespace VidlyWeb.Controllers.Api
             _mapper.Map(customerDto, customerInDb!);
 
             _db.SaveChanges();
+
+            customerDto.Id = customerInDb!.Id;
+
+            return Ok(customerDto);
         }
 
         // DELETE /api/customers/id
         [HttpDelete("{id:int}")]
-        public void DeleteCustomer(int id)
+        public IActionResult DeleteCustomer(int id)
         {
             var customerInDb = _db.Customers.SingleOrDefault(x => x.Id == id);
 
@@ -79,6 +84,8 @@ namespace VidlyWeb.Controllers.Api
 
             _db.Customers.Remove(customerInDb!);
             _db.SaveChanges();
+
+            return Ok(customerInDb);
         }
     }
 }
