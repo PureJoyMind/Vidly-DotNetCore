@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@model Customer
+@*
+    To explicitly set the action which the form submits to we can use
+    <form method="post" asp-action="Edit"
+*@
+<div class="border p-3 mt-4">
+    <div class="row pb-2">
+        <h2 class="text-primary">Customer</h2>
+        <hr />
+    </div>
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Customer Name</th>
+                @if (Model.BirthDateTime.HasValue)
+                {
+                    <th>Birth Date</th>
+                }
+                <th>Newsletter Subscribed</th>
+                <th>MemberShip Type</th>
+                <th>Discount Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+        <td>
+                @Model.Id
+        </td>
+        <td>
+                @Model.Name
+        </td>
+            @if (Model.BirthDateTime.HasValue)
+            {
+                // C# 6 syntax for nullable value types
+            <td>@Model.BirthDateTime?.ToString("D")</td>
+            }
+        <td>@Model.IsSubscribedToNewsletter</td>
+        <td>
+                @Model.MembershipType.Name
+        </td>
+        <td>
+                @Model.MembershipType.DiscountRate &nbsp; %
+        </td>
+        </tbody>
+    </table>
+
+    <a asp-controller="Customers" asp-action="Index" class="btn btn-info" style="width:150px;">
+        Back to list
+    </a>
+</div>
