@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Vidly.Models;
 
 namespace Vidly.Data
 {
@@ -9,5 +10,8 @@ namespace Vidly.Data
             : base(options)
         {
         }
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<MembershipType> MembershipTypes { get; set; }
     }
 }
