@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VidlyWeb", "VidlyWeb\VidlyWeb.csproj", "{2E679012-40CC-40AF-8EE5-93C8EB5592E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VidlyWeb", "VidlyWeb\VidlyWeb.csproj", "{2E679012-40CC-40AF-8EE5-93C8EB5592E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vidly", "Vidly\Vidly.csproj", "{7800E6CA-3DA4-474C-BC97-E2B0A9A66C60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2E679012-40CC-40AF-8EE5-93C8EB5592E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E679012-40CC-40AF-8EE5-93C8EB5592E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E679012-40CC-40AF-8EE5-93C8EB5592E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7800E6CA-3DA4-474C-BC97-E2B0A9A66C60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7800E6CA-3DA4-474C-BC97-E2B0A9A66C60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7800E6CA-3DA4-474C-BC97-E2B0A9A66C60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7800E6CA-3DA4-474C-BC97-E2B0A9A66C60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
