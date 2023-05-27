@@ -1,5 +1,6 @@
 # Vidly
 Movie rental ASP.NET Core MVC application made in mosh hamedani's asp.net framework course.
+This is an educational project made to understand and learn ASP.NET Core concepts and implementation.
 The course was old and using a deprecated framework so I learnt .NET Core and Entity Framework Core and applied it to the project myself. 
 His course was just a roadmap to show me which topics to study next and also tought some real world project perspective to me.
 
